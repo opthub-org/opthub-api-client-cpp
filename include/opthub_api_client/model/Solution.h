@@ -22,9 +22,9 @@
 
 #include "opthub_api_client/ModelBase.h"
 
-#include "opthub_api_client/Object.h"
 #include "opthub_api_client/model/ParticipantType.h"
 #include <cpprest/details/basic_types.h>
+#include <vector>
 
 namespace org {
 namespace openapitools {
@@ -96,11 +96,11 @@ public:
     /// <summary>
     /// 解空間の変数
     /// </summary>
-    std::shared_ptr<Object> getVariable() const;
+    std::vector<double>& getVariable();
     bool variableIsSet() const;
     void unsetVariable();
 
-    void setVariable(const std::shared_ptr<Object>& value);
+    void setVariable(std::vector<double> value);
 
     /// <summary>
     /// 作成日時
@@ -130,7 +130,7 @@ protected:
     bool m_ParticipantIdIsSet;
     int32_t m_TrialNo;
     bool m_TrialNoIsSet;
-    std::shared_ptr<Object> m_Variable;
+    std::vector<double> m_Variable;
     bool m_VariableIsSet;
     utility::datetime m_CreatedAt;
     bool m_CreatedAtIsSet;

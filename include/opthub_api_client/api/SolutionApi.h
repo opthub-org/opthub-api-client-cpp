@@ -25,6 +25,7 @@
 
 #include "opthub_api_client/model/CreateSolutionResponse.h"
 #include "opthub_api_client/model/Solution.h"
+#include <vector>
 #include <cpprest/details/basic_types.h>
 #include <boost/optional.hpp>
 
@@ -55,7 +56,7 @@ public:
     /// <param name="variable">解空間の変数</param>
     pplx::task<std::shared_ptr<CreateSolutionResponse>> createSolution(
         utility::string_t matchId,
-        std::shared_ptr<Object> variable
+        std::vector<double> variable
     ) const;
     /// <summary>
     /// 解の取得

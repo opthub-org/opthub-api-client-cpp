@@ -132,7 +132,7 @@ bool Solution::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("variable")));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<Object> refVal_setVariable;
+            std::vector<double> refVal_setVariable;
             ok &= ModelBase::fromJson(fieldValue, refVal_setVariable);
             setVariable(refVal_setVariable);
         }
@@ -232,7 +232,7 @@ bool Solution::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const
     }
     if(multipart->hasContent(utility::conversions::to_string_t(U("variable"))))
     {
-        std::shared_ptr<Object> refVal_setVariable;
+        std::vector<double> refVal_setVariable;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("variable"))), refVal_setVariable );
         setVariable(refVal_setVariable);
     }
@@ -331,12 +331,12 @@ void Solution::unsetTrialNo()
 {
     m_TrialNoIsSet = false;
 }
-std::shared_ptr<Object> Solution::getVariable() const
+std::vector<double>& Solution::getVariable()
 {
     return m_Variable;
 }
 
-void Solution::setVariable(const std::shared_ptr<Object>& value)
+void Solution::setVariable(std::vector<double> value)
 {
     m_Variable = value;
     m_VariableIsSet = true;

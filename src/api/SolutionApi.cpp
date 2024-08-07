@@ -36,14 +36,8 @@ SolutionApi::~SolutionApi()
 {
 }
 
-pplx::task<std::shared_ptr<CreateSolutionResponse>> SolutionApi::createSolution(utility::string_t matchId, std::shared_ptr<Object> variable) const
+pplx::task<std::shared_ptr<CreateSolutionResponse>> SolutionApi::createSolution(utility::string_t matchId, std::vector<double> variable) const
 {
-
-    // verify the required parameter 'variable' is set
-    if (variable == nullptr)
-    {
-        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'variable' when calling SolutionApi->createSolution"));
-    }
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
@@ -86,7 +80,6 @@ pplx::task<std::shared_ptr<CreateSolutionResponse>> SolutionApi::createSolution(
     {
         localVarQueryParams[utility::conversions::to_string_t("matchId")] = ApiClient::parameterToString(matchId);
     }
-    if (variable != nullptr)
     {
         localVarQueryParams[utility::conversions::to_string_t("variable")] = ApiClient::parameterToString(variable);
     }
