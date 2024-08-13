@@ -108,10 +108,10 @@ pplx::task<std::shared_ptr<CreateSolutionResponse>> SolutionApi::createSolution(
 
     // authentication (ApiKeyAuth) required
     {
-        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("Authorization"));
+        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("x-api-key"));
         if ( localVarApiKey.size() > 0 )
         {
-            localVarHeaderParams[utility::conversions::to_string_t("Authorization")] = localVarApiKey;
+            localVarHeaderParams[utility::conversions::to_string_t("x-api-key")] = localVarApiKey;
         }
     }
 
@@ -247,10 +247,10 @@ pplx::task<std::shared_ptr<Solution>> SolutionApi::getSolution(utility::string_t
 
     // authentication (ApiKeyAuth) required
     {
-        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("Authorization"));
+        utility::string_t localVarApiKey = localVarApiConfiguration->getApiKey(utility::conversions::to_string_t("x-api-key"));
         if ( localVarApiKey.size() > 0 )
         {
-            localVarHeaderParams[utility::conversions::to_string_t("Authorization")] = localVarApiKey;
+            localVarHeaderParams[utility::conversions::to_string_t("x-api-key")] = localVarApiKey;
         }
     }
 
