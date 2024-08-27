@@ -1,6 +1,6 @@
 /**
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -44,22 +44,22 @@ public:
     virtual ~CompetitionApi();
 
     /// <summary>
-    /// コンペティションIDからコンペティションのエイリアスを取得
+    /// Retrieve the competition alias from the competition ID
     /// </summary>
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="id">コンペティションのID</param>
+    /// <param name="id">Competition ID</param>
     pplx::task<utility::string_t> resolveCompetitionAliasById(
         utility::string_t id
     ) const;
     /// <summary>
-    /// コンペティションのエイリアスからコンペティションIDを取得
+    /// Retrieve the competition ID from the competition alias
     /// </summary>
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="alias">コンペティションのエイリアス</param>
+    /// <param name="alias">Competition alias</param>
     pplx::task<utility::string_t> resolveCompetitionIdByAlias(
         utility::string_t alias
     ) const;

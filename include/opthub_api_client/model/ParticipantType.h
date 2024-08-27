@@ -1,6 +1,6 @@
 /**
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -13,7 +13,7 @@
 /*
  * ParticipantType.h
  *
- * 参加者の種別
+ * Participant type
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_ParticipantType_H_

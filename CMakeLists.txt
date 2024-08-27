@@ -1,6 +1,6 @@
 #
 # OptHub REST API
-# OptHubの公開REST APIです。
+# OptHub Public REST API.
 #
 # The version of the OpenAPI document: 1.0.0
 #

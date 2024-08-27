@@ -1,6 +1,6 @@
 /**
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -24,6 +24,7 @@
 #include "opthub_api_client/ApiClient.h"
 
 #include "opthub_api_client/model/CreateSolutionResponse.h"
+#include "opthub_api_client/model/GetSolutionError.h"
 #include "opthub_api_client/model/Solution.h"
 #include <vector>
 #include <cpprest/details/basic_types.h>
@@ -47,26 +48,26 @@ public:
     virtual ~SolutionApi();
 
     /// <summary>
-    /// 解の作成
+    /// Create solution
     /// </summary>
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="matchId">競技のID</param>
-    /// <param name="variable">解空間の変数</param>
+    /// <param name="matchId">Match ID</param>
+    /// <param name="variable">Solution space variable</param>
     pplx::task<std::shared_ptr<CreateSolutionResponse>> createSolution(
         utility::string_t matchId,
         std::vector<double> variable
     ) const;
     /// <summary>
-    /// 解の取得
+    /// Retrive solution
     /// </summary>
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="matchId">競技のID</param>
-    /// <param name="participantId">参加者のID</param>
-    /// <param name="trialNo">試行番号</param>
+    /// <param name="matchId">Match ID</param>
+    /// <param name="participantId">Participant ID</param>
+    /// <param name="trialNo">Trial number</param>
     pplx::task<std::shared_ptr<Solution>> getSolution(
         utility::string_t matchId,
         utility::string_t participantId,

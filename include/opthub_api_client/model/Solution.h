@@ -1,6 +1,6 @@
 /**
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -59,7 +59,7 @@ public:
     /// Solution members
 
     /// <summary>
-    /// 競技のID
+    /// Match ID
     /// </summary>
     utility::string_t getMatchId() const;
     bool matchIdIsSet() const;
@@ -77,7 +77,7 @@ public:
     void setParticipant(const std::shared_ptr<Participant>& value);
 
     /// <summary>
-    /// 試行番号
+    /// Trial number
     /// </summary>
     int32_t getTrialNo() const;
     bool trialNoIsSet() const;
@@ -86,7 +86,7 @@ public:
     void setTrialNo(int32_t value);
 
     /// <summary>
-    /// 解空間の変数
+    /// Solution space variable
     /// </summary>
     std::vector<double>& getVariable();
     bool variableIsSet() const;
@@ -95,7 +95,7 @@ public:
     void setVariable(std::vector<double> value);
 
     /// <summary>
-    /// 作成日時
+    /// Creation date and time
     /// </summary>
     utility::datetime getCreatedAt() const;
     bool createdAtIsSet() const;
@@ -104,7 +104,7 @@ public:
     void setCreatedAt(const utility::datetime& value);
 
     /// <summary>
-    /// 作成したユーザのID
+    /// ID of the user who created it
     /// </summary>
     utility::string_t getUserId() const;
     bool userIdIsSet() const;

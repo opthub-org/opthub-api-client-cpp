@@ -1,6 +1,6 @@
 /**
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -13,7 +13,7 @@
 /*
  * CreateSolutionResponse.h
  *
- * 解の作成リクエストの結果
+ * Information of the created solution
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_CreateSolutionResponse_H_
@@ -33,7 +33,7 @@ class Participant;
 
 
 /// <summary>
-/// 解の作成リクエストの結果
+/// Information of the created solution
 /// </summary>
 class  CreateSolutionResponse
     : public ModelBase
@@ -66,7 +66,7 @@ public:
     void setParticipant(const std::shared_ptr<Participant>& value);
 
     /// <summary>
-    /// 試行番号
+    /// Trial number
     /// </summary>
     int32_t getTrialNo() const;
     bool trialNoIsSet() const;

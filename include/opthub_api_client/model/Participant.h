@@ -1,6 +1,6 @@
 /**
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -13,7 +13,7 @@
 /*
  * Participant.h
  *
- * 参加者の情報
+ * Participant information
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Participant_H_
@@ -33,7 +33,7 @@ namespace model {
 
 
 /// <summary>
-/// 参加者の情報
+/// Participant information
 /// </summary>
 class  Participant
     : public ModelBase
@@ -57,7 +57,7 @@ public:
     /// Participant members
 
     /// <summary>
-    /// 参加者のID
+    /// Participant ID
     /// </summary>
     utility::string_t getParticipantId() const;
     bool participantIdIsSet() const;

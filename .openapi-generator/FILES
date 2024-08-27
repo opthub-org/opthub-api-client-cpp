@@ -19,6 +19,7 @@ include/opthub_api_client/api/CompetitionApi.h
 include/opthub_api_client/api/MatchApi.h
 include/opthub_api_client/api/SolutionApi.h
 include/opthub_api_client/model/CreateSolutionResponse.h
+include/opthub_api_client/model/GetSolutionError.h
 include/opthub_api_client/model/Participant.h
 include/opthub_api_client/model/ParticipantType.h
 include/opthub_api_client/model/Solution.h
@@ -36,6 +37,7 @@ src/api/CompetitionApi.cpp
 src/api/MatchApi.cpp
 src/api/SolutionApi.cpp
 src/model/CreateSolutionResponse.cpp
+src/model/GetSolutionError.cpp
 src/model/Participant.cpp
 src/model/ParticipantType.cpp
 src/model/Solution.cpp

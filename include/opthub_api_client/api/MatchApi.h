@@ -1,6 +1,6 @@
 /**
  * OptHub REST API
- * OptHubの公開REST APIです。
+ * OptHub Public REST API.
  *
  * The version of the OpenAPI document: 0.1.0
  * Contact: dev@opthub.ai
@@ -44,22 +44,22 @@ public:
     virtual ~MatchApi();
 
     /// <summary>
-    /// 競技IDから競技のエイリアスを取得
+    /// Retrieve the match alias from the match ID
     /// </summary>
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="matchId">競技のID</param>
+    /// <param name="matchId">Match ID</param>
     pplx::task<utility::string_t> resolveMatchAliasById(
         utility::string_t matchId
     ) const;
     /// <summary>
-    /// 競技のエイリアスから競技IDを取得
+    /// Retrieve the match ID from the match alias
     /// </summary>
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="alias">競技のエイリアス</param>
+    /// <param name="alias">Match alias</param>
     pplx::task<utility::string_t> resolveMatchIdByAlias(
         utility::string_t alias
     ) const;
