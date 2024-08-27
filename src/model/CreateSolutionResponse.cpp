@@ -23,7 +23,8 @@ namespace model {
 
 CreateSolutionResponse::CreateSolutionResponse()
 {
-    m_ParticipantIsSet = false;
+    m_ParticipantId = utility::conversions::to_string_t("");
+    m_ParticipantIdIsSet = false;
     m_TrialNo = 0;
     m_TrialNoIsSet = false;
 }
@@ -42,9 +43,9 @@ web::json::value CreateSolutionResponse::toJson() const
 
     web::json::value val = web::json::value::object();
     
-    if(m_ParticipantIsSet)
+    if(m_ParticipantIdIsSet)
     {
-        val[utility::conversions::to_string_t(U("participant"))] = ModelBase::toJson(m_Participant);
+        val[utility::conversions::to_string_t(U("participantId"))] = ModelBase::toJson(m_ParticipantId);
     }
     if(m_TrialNoIsSet)
     {
@@ -58,14 +59,14 @@ bool CreateSolutionResponse::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
-    if(val.has_field(utility::conversions::to_string_t(U("participant"))))
+    if(val.has_field(utility::conversions::to_string_t(U("participantId"))))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("participant")));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("participantId")));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<Participant> refVal_setParticipant;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setParticipant);
-            setParticipant(refVal_setParticipant);
+            utility::string_t refVal_setParticipantId;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setParticipantId);
+            setParticipantId(refVal_setParticipantId);
         }
     }
     if(val.has_field(utility::conversions::to_string_t(U("trialNo"))))
@@ -88,9 +89,9 @@ void CreateSolutionResponse::toMultipart(std::shared_ptr<MultipartFormData> mult
     {
         namePrefix += utility::conversions::to_string_t(U("."));
     }
-    if(m_ParticipantIsSet)
+    if(m_ParticipantIdIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("participant")), m_Participant));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("participantId")), m_ParticipantId));
     }
     if(m_TrialNoIsSet)
     {
@@ -107,11 +108,11 @@ bool CreateSolutionResponse::fromMultiPart(std::shared_ptr<MultipartFormData> mu
         namePrefix += utility::conversions::to_string_t(U("."));
     }
 
-    if(multipart->hasContent(utility::conversions::to_string_t(U("participant"))))
+    if(multipart->hasContent(utility::conversions::to_string_t(U("participantId"))))
     {
-        std::shared_ptr<Participant> refVal_setParticipant;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("participant"))), refVal_setParticipant );
-        setParticipant(refVal_setParticipant);
+        utility::string_t refVal_setParticipantId;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("participantId"))), refVal_setParticipantId );
+        setParticipantId(refVal_setParticipantId);
     }
     if(multipart->hasContent(utility::conversions::to_string_t(U("trialNo"))))
     {
@@ -122,25 +123,25 @@ bool CreateSolutionResponse::fromMultiPart(std::shared_ptr<MultipartFormData> mu
     return ok;
 }
 
-std::shared_ptr<Participant> CreateSolutionResponse::getParticipant() const
+utility::string_t CreateSolutionResponse::getParticipantId() const
 {
-    return m_Participant;
+    return m_ParticipantId;
 }
 
-void CreateSolutionResponse::setParticipant(const std::shared_ptr<Participant>& value)
+void CreateSolutionResponse::setParticipantId(const utility::string_t& value)
 {
-    m_Participant = value;
-    m_ParticipantIsSet = true;
+    m_ParticipantId = value;
+    m_ParticipantIdIsSet = true;
 }
 
-bool CreateSolutionResponse::participantIsSet() const
+bool CreateSolutionResponse::participantIdIsSet() const
 {
-    return m_ParticipantIsSet;
+    return m_ParticipantIdIsSet;
 }
 
-void CreateSolutionResponse::unsetParticipant()
+void CreateSolutionResponse::unsetParticipantId()
 {
-    m_ParticipantIsSet = false;
+    m_ParticipantIdIsSet = false;
 }
 int32_t CreateSolutionResponse::getTrialNo() const
 {

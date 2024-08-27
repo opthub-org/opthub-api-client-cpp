@@ -22,7 +22,6 @@
 
 #include "opthub_api_client/ModelBase.h"
 
-#include "opthub_api_client/model/Participant.h"
 #include <cpprest/details/basic_types.h>
 #include <vector>
 
@@ -31,7 +30,6 @@ namespace openapitools {
 namespace client {
 namespace model {
 
-class Participant;
 
 
 /// <summary>
@@ -66,15 +64,6 @@ public:
     void unsetMatchId();
 
     void setMatchId(const utility::string_t& value);
-
-    /// <summary>
-    /// 
-    /// </summary>
-    std::shared_ptr<Participant> getParticipant() const;
-    bool participantIsSet() const;
-    void unsetParticipant();
-
-    void setParticipant(const std::shared_ptr<Participant>& value);
 
     /// <summary>
     /// Trial number
@@ -116,8 +105,6 @@ public:
 protected:
     utility::string_t m_MatchId;
     bool m_MatchIdIsSet;
-    std::shared_ptr<Participant> m_Participant;
-    bool m_ParticipantIsSet;
     int32_t m_TrialNo;
     bool m_TrialNoIsSet;
     std::vector<double> m_Variable;

@@ -23,8 +23,6 @@ namespace model {
 
 Participant::Participant()
 {
-    m_ParticipantId = utility::conversions::to_string_t("");
-    m_ParticipantIdIsSet = false;
     m_ParticipantTypeIsSet = false;
 }
 
@@ -42,10 +40,6 @@ web::json::value Participant::toJson() const
 
     web::json::value val = web::json::value::object();
     
-    if(m_ParticipantIdIsSet)
-    {
-        val[utility::conversions::to_string_t(U("participantId"))] = ModelBase::toJson(m_ParticipantId);
-    }
     if(m_ParticipantTypeIsSet)
     {
         val[utility::conversions::to_string_t(U("participantType"))] = ModelBase::toJson(m_ParticipantType);
@@ -58,16 +52,6 @@ bool Participant::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
-    if(val.has_field(utility::conversions::to_string_t(U("participantId"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("participantId")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setParticipantId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setParticipantId);
-            setParticipantId(refVal_setParticipantId);
-        }
-    }
     if(val.has_field(utility::conversions::to_string_t(U("participantType"))))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("participantType")));
@@ -88,10 +72,6 @@ void Participant::toMultipart(std::shared_ptr<MultipartFormData> multipart, cons
     {
         namePrefix += utility::conversions::to_string_t(U("."));
     }
-    if(m_ParticipantIdIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("participantId")), m_ParticipantId));
-    }
     if(m_ParticipantTypeIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("participantType")), m_ParticipantType));
@@ -107,12 +87,6 @@ bool Participant::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, co
         namePrefix += utility::conversions::to_string_t(U("."));
     }
 
-    if(multipart->hasContent(utility::conversions::to_string_t(U("participantId"))))
-    {
-        utility::string_t refVal_setParticipantId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("participantId"))), refVal_setParticipantId );
-        setParticipantId(refVal_setParticipantId);
-    }
     if(multipart->hasContent(utility::conversions::to_string_t(U("participantType"))))
     {
         std::shared_ptr<ParticipantType> refVal_setParticipantType;
@@ -122,26 +96,6 @@ bool Participant::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, co
     return ok;
 }
 
-utility::string_t Participant::getParticipantId() const
-{
-    return m_ParticipantId;
-}
-
-void Participant::setParticipantId(const utility::string_t& value)
-{
-    m_ParticipantId = value;
-    m_ParticipantIdIsSet = true;
-}
-
-bool Participant::participantIdIsSet() const
-{
-    return m_ParticipantIdIsSet;
-}
-
-void Participant::unsetParticipantId()
-{
-    m_ParticipantIdIsSet = false;
-}
 std::shared_ptr<ParticipantType> Participant::getParticipantType() const
 {
     return m_ParticipantType;

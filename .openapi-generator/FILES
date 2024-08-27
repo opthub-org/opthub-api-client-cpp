@@ -17,6 +17,7 @@ include/opthub_api_client/Object.h
 include/opthub_api_client/api/AliasApi.h
 include/opthub_api_client/api/CompetitionApi.h
 include/opthub_api_client/api/MatchApi.h
+include/opthub_api_client/api/ParticipantApi.h
 include/opthub_api_client/api/SolutionApi.h
 include/opthub_api_client/model/CreateSolutionResponse.h
 include/opthub_api_client/model/GetSolutionError.h
@@ -35,6 +36,7 @@ src/Object.cpp
 src/api/AliasApi.cpp
 src/api/CompetitionApi.cpp
 src/api/MatchApi.cpp
+src/api/ParticipantApi.cpp
 src/api/SolutionApi.cpp
 src/model/CreateSolutionResponse.cpp
 src/model/GetSolutionError.cpp

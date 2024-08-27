@@ -23,7 +23,6 @@
 #include "opthub_api_client/ModelBase.h"
 
 #include "opthub_api_client/model/ParticipantType.h"
-#include <cpprest/details/basic_types.h>
 
 namespace org {
 namespace openapitools {
@@ -57,15 +56,6 @@ public:
     /// Participant members
 
     /// <summary>
-    /// Participant ID
-    /// </summary>
-    utility::string_t getParticipantId() const;
-    bool participantIdIsSet() const;
-    void unsetParticipantId();
-
-    void setParticipantId(const utility::string_t& value);
-
-    /// <summary>
     /// 
     /// </summary>
     std::shared_ptr<ParticipantType> getParticipantType() const;
@@ -76,8 +66,6 @@ public:
 
 
 protected:
-    utility::string_t m_ParticipantId;
-    bool m_ParticipantIdIsSet;
     std::shared_ptr<ParticipantType> m_ParticipantType;
     bool m_ParticipantTypeIsSet;
 };

@@ -22,14 +22,13 @@
 
 #include "opthub_api_client/ModelBase.h"
 
-#include "opthub_api_client/model/Participant.h"
+#include <cpprest/details/basic_types.h>
 
 namespace org {
 namespace openapitools {
 namespace client {
 namespace model {
 
-class Participant;
 
 
 /// <summary>
@@ -57,13 +56,13 @@ public:
     /// CreateSolutionResponse members
 
     /// <summary>
-    /// 
+    /// Participant ID
     /// </summary>
-    std::shared_ptr<Participant> getParticipant() const;
-    bool participantIsSet() const;
-    void unsetParticipant();
+    utility::string_t getParticipantId() const;
+    bool participantIdIsSet() const;
+    void unsetParticipantId();
 
-    void setParticipant(const std::shared_ptr<Participant>& value);
+    void setParticipantId(const utility::string_t& value);
 
     /// <summary>
     /// Trial number
@@ -76,8 +75,8 @@ public:
 
 
 protected:
-    std::shared_ptr<Participant> m_Participant;
-    bool m_ParticipantIsSet;
+    utility::string_t m_ParticipantId;
+    bool m_ParticipantIdIsSet;
     int32_t m_TrialNo;
     bool m_TrialNoIsSet;
 };
