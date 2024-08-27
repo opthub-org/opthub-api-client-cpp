@@ -22,7 +22,7 @@
 
 #include "opthub_api_client/ModelBase.h"
 
-#include "opthub_api_client/model/ParticipantType.h"
+#include "opthub_api_client/model/Participant.h"
 #include <cpprest/details/basic_types.h>
 #include <vector>
 
@@ -31,6 +31,7 @@ namespace openapitools {
 namespace client {
 namespace model {
 
+class Participant;
 
 
 /// <summary>
@@ -69,20 +70,11 @@ public:
     /// <summary>
     /// 
     /// </summary>
-    std::shared_ptr<ParticipantType> getParticipantType() const;
-    bool participantTypeIsSet() const;
-    void unsetParticipantType();
+    std::shared_ptr<Participant> getParticipant() const;
+    bool participantIsSet() const;
+    void unsetParticipant();
 
-    void setParticipantType(const std::shared_ptr<ParticipantType>& value);
-
-    /// <summary>
-    /// 参加者のID
-    /// </summary>
-    utility::string_t getParticipantId() const;
-    bool participantIdIsSet() const;
-    void unsetParticipantId();
-
-    void setParticipantId(const utility::string_t& value);
+    void setParticipant(const std::shared_ptr<Participant>& value);
 
     /// <summary>
     /// 試行番号
@@ -124,10 +116,8 @@ public:
 protected:
     utility::string_t m_MatchId;
     bool m_MatchIdIsSet;
-    std::shared_ptr<ParticipantType> m_ParticipantType;
-    bool m_ParticipantTypeIsSet;
-    utility::string_t m_ParticipantId;
-    bool m_ParticipantIdIsSet;
+    std::shared_ptr<Participant> m_Participant;
+    bool m_ParticipantIsSet;
     int32_t m_TrialNo;
     bool m_TrialNoIsSet;
     std::vector<double> m_Variable;

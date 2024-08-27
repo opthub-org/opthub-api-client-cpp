@@ -11,36 +11,36 @@
  */
 
 /*
- * CreateSolutionResponse.h
+ * Participant.h
  *
- * 解の作成リクエストの結果
+ * 参加者の情報
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_CreateSolutionResponse_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_CreateSolutionResponse_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Participant_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_Participant_H_
 
 
 #include "opthub_api_client/ModelBase.h"
 
-#include "opthub_api_client/model/Participant.h"
+#include "opthub_api_client/model/ParticipantType.h"
+#include <cpprest/details/basic_types.h>
 
 namespace org {
 namespace openapitools {
 namespace client {
 namespace model {
 
-class Participant;
 
 
 /// <summary>
-/// 解の作成リクエストの結果
+/// 参加者の情報
 /// </summary>
-class  CreateSolutionResponse
+class  Participant
     : public ModelBase
 {
 public:
-    CreateSolutionResponse();
-    virtual ~CreateSolutionResponse();
+    Participant();
+    virtual ~Participant();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -54,32 +54,32 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// CreateSolutionResponse members
+    /// Participant members
+
+    /// <summary>
+    /// 参加者のID
+    /// </summary>
+    utility::string_t getParticipantId() const;
+    bool participantIdIsSet() const;
+    void unsetParticipantId();
+
+    void setParticipantId(const utility::string_t& value);
 
     /// <summary>
     /// 
     /// </summary>
-    std::shared_ptr<Participant> getParticipant() const;
-    bool participantIsSet() const;
-    void unsetParticipant();
+    std::shared_ptr<ParticipantType> getParticipantType() const;
+    bool participantTypeIsSet() const;
+    void unsetParticipantType();
 
-    void setParticipant(const std::shared_ptr<Participant>& value);
-
-    /// <summary>
-    /// 試行番号
-    /// </summary>
-    int32_t getTrialNo() const;
-    bool trialNoIsSet() const;
-    void unsetTrialNo();
-
-    void setTrialNo(int32_t value);
+    void setParticipantType(const std::shared_ptr<ParticipantType>& value);
 
 
 protected:
-    std::shared_ptr<Participant> m_Participant;
-    bool m_ParticipantIsSet;
-    int32_t m_TrialNo;
-    bool m_TrialNoIsSet;
+    utility::string_t m_ParticipantId;
+    bool m_ParticipantIdIsSet;
+    std::shared_ptr<ParticipantType> m_ParticipantType;
+    bool m_ParticipantTypeIsSet;
 };
 
 
@@ -88,4 +88,4 @@ protected:
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_CreateSolutionResponse_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_Participant_H_ */

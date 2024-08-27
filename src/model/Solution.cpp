@@ -25,9 +25,7 @@ Solution::Solution()
 {
     m_MatchId = utility::conversions::to_string_t("");
     m_MatchIdIsSet = false;
-    m_ParticipantTypeIsSet = false;
-    m_ParticipantId = utility::conversions::to_string_t("");
-    m_ParticipantIdIsSet = false;
+    m_ParticipantIsSet = false;
     m_TrialNo = 0;
     m_TrialNoIsSet = false;
     m_VariableIsSet = false;
@@ -55,13 +53,9 @@ web::json::value Solution::toJson() const
     {
         val[utility::conversions::to_string_t(U("matchId"))] = ModelBase::toJson(m_MatchId);
     }
-    if(m_ParticipantTypeIsSet)
+    if(m_ParticipantIsSet)
     {
-        val[utility::conversions::to_string_t(U("participantType"))] = ModelBase::toJson(m_ParticipantType);
-    }
-    if(m_ParticipantIdIsSet)
-    {
-        val[utility::conversions::to_string_t(U("participantId"))] = ModelBase::toJson(m_ParticipantId);
+        val[utility::conversions::to_string_t(U("participant"))] = ModelBase::toJson(m_Participant);
     }
     if(m_TrialNoIsSet)
     {
@@ -97,24 +91,14 @@ bool Solution::fromJson(const web::json::value& val)
             setMatchId(refVal_setMatchId);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t(U("participantType"))))
+    if(val.has_field(utility::conversions::to_string_t(U("participant"))))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("participantType")));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("participant")));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<ParticipantType> refVal_setParticipantType;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setParticipantType);
-            setParticipantType(refVal_setParticipantType);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t(U("participantId"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("participantId")));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_setParticipantId;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setParticipantId);
-            setParticipantId(refVal_setParticipantId);
+            std::shared_ptr<Participant> refVal_setParticipant;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setParticipant);
+            setParticipant(refVal_setParticipant);
         }
     }
     if(val.has_field(utility::conversions::to_string_t(U("trialNo"))))
@@ -171,13 +155,9 @@ void Solution::toMultipart(std::shared_ptr<MultipartFormData> multipart, const u
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("matchId")), m_MatchId));
     }
-    if(m_ParticipantTypeIsSet)
+    if(m_ParticipantIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("participantType")), m_ParticipantType));
-    }
-    if(m_ParticipantIdIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("participantId")), m_ParticipantId));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("participant")), m_Participant));
     }
     if(m_TrialNoIsSet)
     {
@@ -212,17 +192,11 @@ bool Solution::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("matchId"))), refVal_setMatchId );
         setMatchId(refVal_setMatchId);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("participantType"))))
+    if(multipart->hasContent(utility::conversions::to_string_t(U("participant"))))
     {
-        std::shared_ptr<ParticipantType> refVal_setParticipantType;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("participantType"))), refVal_setParticipantType );
-        setParticipantType(refVal_setParticipantType);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("participantId"))))
-    {
-        utility::string_t refVal_setParticipantId;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("participantId"))), refVal_setParticipantId );
-        setParticipantId(refVal_setParticipantId);
+        std::shared_ptr<Participant> refVal_setParticipant;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("participant"))), refVal_setParticipant );
+        setParticipant(refVal_setParticipant);
     }
     if(multipart->hasContent(utility::conversions::to_string_t(U("trialNo"))))
     {
@@ -271,45 +245,25 @@ void Solution::unsetMatchId()
 {
     m_MatchIdIsSet = false;
 }
-std::shared_ptr<ParticipantType> Solution::getParticipantType() const
+std::shared_ptr<Participant> Solution::getParticipant() const
 {
-    return m_ParticipantType;
+    return m_Participant;
 }
 
-void Solution::setParticipantType(const std::shared_ptr<ParticipantType>& value)
+void Solution::setParticipant(const std::shared_ptr<Participant>& value)
 {
-    m_ParticipantType = value;
-    m_ParticipantTypeIsSet = true;
+    m_Participant = value;
+    m_ParticipantIsSet = true;
 }
 
-bool Solution::participantTypeIsSet() const
+bool Solution::participantIsSet() const
 {
-    return m_ParticipantTypeIsSet;
+    return m_ParticipantIsSet;
 }
 
-void Solution::unsetParticipantType()
+void Solution::unsetParticipant()
 {
-    m_ParticipantTypeIsSet = false;
-}
-utility::string_t Solution::getParticipantId() const
-{
-    return m_ParticipantId;
-}
-
-void Solution::setParticipantId(const utility::string_t& value)
-{
-    m_ParticipantId = value;
-    m_ParticipantIdIsSet = true;
-}
-
-bool Solution::participantIdIsSet() const
-{
-    return m_ParticipantIdIsSet;
-}
-
-void Solution::unsetParticipantId()
-{
-    m_ParticipantIdIsSet = false;
+    m_ParticipantIsSet = false;
 }
 int32_t Solution::getTrialNo() const
 {
