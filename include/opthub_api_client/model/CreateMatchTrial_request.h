@@ -11,33 +11,40 @@
  */
 
 /*
- * Object.h
+ * CreateMatchTrial_request.h
  *
- * This is the implementation of a JSON object.
+ * Solution space variable
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Object_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_Object_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_CreateMatchTrial_request_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_CreateMatchTrial_request_H_
 
 
 #include "opthub_api_client/ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
-#include <cpprest/json.h>
+#include "opthub_api_client/model/ScalarOrVector.h"
 
 namespace org {
 namespace openapitools {
 namespace client {
 namespace model {
 
-class  Object : public ModelBase
+class ScalarOrVector;
+
+
+/// <summary>
+/// Solution space variable
+/// </summary>
+class  CreateMatchTrial_request
+    : public ModelBase
 {
 public:
-    Object();
-    virtual ~Object();
+    CreateMatchTrial_request();
+    virtual ~CreateMatchTrial_request();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
+
     void validate() override;
 
     web::json::value toJson() const override;
@@ -47,17 +54,27 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Object manipulation
-    web::json::value getValue(const utility::string_t& key) const;
-    void setValue(const utility::string_t& key, const web::json::value& value);
+    /// CreateMatchTrial_request members
 
-private:
-    web::json::value m_object;
+    /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<ScalarOrVector> getVariable() const;
+    bool variableIsSet() const;
+    void unsetVariable();
+
+    void setVariable(const std::shared_ptr<ScalarOrVector>& value);
+
+
+protected:
+    std::shared_ptr<ScalarOrVector> m_Variable;
+    bool m_VariableIsSet;
 };
 
+
 }
 }
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_Object_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_CreateMatchTrial_request_H_ */

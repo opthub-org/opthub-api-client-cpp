@@ -12,7 +12,7 @@
 
 
 
-#include "opthub_api_client/model/Solution.h"
+#include "opthub_api_client/model/CreateMatchTrial_request.h"
 
 namespace org {
 namespace openapitools {
@@ -21,23 +21,21 @@ namespace model {
 
 
 
-Solution::Solution()
+CreateMatchTrial_request::CreateMatchTrial_request()
 {
     m_VariableIsSet = false;
-    m_CreatedAt = utility::datetime();
-    m_CreatedAtIsSet = false;
 }
 
-Solution::~Solution()
+CreateMatchTrial_request::~CreateMatchTrial_request()
 {
 }
 
-void Solution::validate()
+void CreateMatchTrial_request::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value Solution::toJson() const
+web::json::value CreateMatchTrial_request::toJson() const
 {
 
     web::json::value val = web::json::value::object();
@@ -46,15 +44,11 @@ web::json::value Solution::toJson() const
     {
         val[utility::conversions::to_string_t(U("variable"))] = ModelBase::toJson(m_Variable);
     }
-    if(m_CreatedAtIsSet)
-    {
-        val[utility::conversions::to_string_t(U("createdAt"))] = ModelBase::toJson(m_CreatedAt);
-    }
 
     return val;
 }
 
-bool Solution::fromJson(const web::json::value& val)
+bool CreateMatchTrial_request::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
@@ -68,20 +62,10 @@ bool Solution::fromJson(const web::json::value& val)
             setVariable(refVal_setVariable);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t(U("createdAt"))))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(U("createdAt")));
-        if(!fieldValue.is_null())
-        {
-            utility::datetime refVal_setCreatedAt;
-            ok &= ModelBase::fromJson(fieldValue, refVal_setCreatedAt);
-            setCreatedAt(refVal_setCreatedAt);
-        }
-    }
     return ok;
 }
 
-void Solution::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void CreateMatchTrial_request::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t(U(".")))
@@ -92,13 +76,9 @@ void Solution::toMultipart(std::shared_ptr<MultipartFormData> multipart, const u
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("variable")), m_Variable));
     }
-    if(m_CreatedAtIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(U("createdAt")), m_CreatedAt));
-    }
 }
 
-bool Solution::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+bool CreateMatchTrial_request::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     bool ok = true;
     utility::string_t namePrefix = prefix;
@@ -113,54 +93,28 @@ bool Solution::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("variable"))), refVal_setVariable );
         setVariable(refVal_setVariable);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t(U("createdAt"))))
-    {
-        utility::datetime refVal_setCreatedAt;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(U("createdAt"))), refVal_setCreatedAt );
-        setCreatedAt(refVal_setCreatedAt);
-    }
     return ok;
 }
 
-std::shared_ptr<ScalarOrVector> Solution::getVariable() const
+std::shared_ptr<ScalarOrVector> CreateMatchTrial_request::getVariable() const
 {
     return m_Variable;
 }
 
-void Solution::setVariable(const std::shared_ptr<ScalarOrVector>& value)
+void CreateMatchTrial_request::setVariable(const std::shared_ptr<ScalarOrVector>& value)
 {
     m_Variable = value;
     m_VariableIsSet = true;
 }
 
-bool Solution::variableIsSet() const
+bool CreateMatchTrial_request::variableIsSet() const
 {
     return m_VariableIsSet;
 }
 
-void Solution::unsetVariable()
+void CreateMatchTrial_request::unsetVariable()
 {
     m_VariableIsSet = false;
-}
-utility::datetime Solution::getCreatedAt() const
-{
-    return m_CreatedAt;
-}
-
-void Solution::setCreatedAt(const utility::datetime& value)
-{
-    m_CreatedAt = value;
-    m_CreatedAtIsSet = true;
-}
-
-bool Solution::createdAtIsSet() const
-{
-    return m_CreatedAtIsSet;
-}
-
-void Solution::unsetCreatedAt()
-{
-    m_CreatedAtIsSet = false;
 }
 }
 }

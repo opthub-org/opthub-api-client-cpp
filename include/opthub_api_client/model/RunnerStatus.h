@@ -11,33 +11,34 @@
  */
 
 /*
- * Object.h
+ * RunnerStatus.h
  *
- * This is the implementation of a JSON object.
+ * Status of the Trial
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Object_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_Object_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_RunnerStatus_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_RunnerStatus_H_
 
 
 #include "opthub_api_client/ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
-#include <cpprest/json.h>
 
 namespace org {
 namespace openapitools {
 namespace client {
 namespace model {
 
-class  Object : public ModelBase
+
+class  RunnerStatus
+    : public ModelBase
 {
 public:
-    Object();
-    virtual ~Object();
+    RunnerStatus();
+    virtual ~RunnerStatus();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
+
     void validate() override;
 
     web::json::value toJson() const override;
@@ -46,13 +47,17 @@ public:
     void toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) const override;
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
-    /////////////////////////////////////////////
-    /// Object manipulation
-    web::json::value getValue(const utility::string_t& key) const;
-    void setValue(const utility::string_t& key, const web::json::value& value);
+    enum class eRunnerStatus
+    {
+        RunnerStatus_SUCCESS,
+        RunnerStatus_FAILED,
+    };
 
-private:
-    web::json::value m_object;
+    eRunnerStatus getValue() const;
+    void setValue(eRunnerStatus const value);
+
+    protected:
+        eRunnerStatus m_value;
 };
 
 }
@@ -60,4 +65,4 @@ private:
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_Object_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_RunnerStatus_H_ */

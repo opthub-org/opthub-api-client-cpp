@@ -11,33 +11,39 @@
  */
 
 /*
- * Object.h
+ * GetMatchTrial_403_response.h
  *
- * This is the implementation of a JSON object.
+ * 
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Object_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_Object_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_GetMatchTrial_403_response_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_GetMatchTrial_403_response_H_
 
 
 #include "opthub_api_client/ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
-#include <cpprest/json.h>
 
 namespace org {
 namespace openapitools {
 namespace client {
 namespace model {
 
-class  Object : public ModelBase
+
+
+/// <summary>
+/// 
+/// </summary>
+class  GetMatchTrial_403_response
+    : public ModelBase
 {
 public:
-    Object();
-    virtual ~Object();
+    GetMatchTrial_403_response();
+    virtual ~GetMatchTrial_403_response();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
+
     void validate() override;
 
     web::json::value toJson() const override;
@@ -47,17 +53,38 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Object manipulation
-    web::json::value getValue(const utility::string_t& key) const;
-    void setValue(const utility::string_t& key, const web::json::value& value);
+    /// GetMatchTrial_403_response members
 
-private:
-    web::json::value m_object;
+    /// <summary>
+    /// 
+    /// </summary>
+    utility::string_t getCode() const;
+    bool codeIsSet() const;
+    void unsetCode();
+
+    void setCode(const utility::string_t& value);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    utility::string_t getMessage() const;
+    bool messageIsSet() const;
+    void unsetMessage();
+
+    void setMessage(const utility::string_t& value);
+
+
+protected:
+    utility::string_t m_Code;
+    bool m_CodeIsSet;
+    utility::string_t m_Message;
+    bool m_MessageIsSet;
 };
 
+
 }
 }
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_Object_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_GetMatchTrial_403_response_H_ */

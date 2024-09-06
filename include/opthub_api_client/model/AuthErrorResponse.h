@@ -11,18 +11,18 @@
  */
 
 /*
- * Solution.h
+ * AuthErrorResponse.h
  *
- * Solution information
+ * Authentication error response
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Solution_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_Solution_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_AuthErrorResponse_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_AuthErrorResponse_H_
 
 
 #include "opthub_api_client/ModelBase.h"
 
-#include "opthub_api_client/model/ScalarOrVector.h"
+#include "opthub_api_client/model/AuthErrorCode.h"
 #include <cpprest/details/basic_types.h>
 
 namespace org {
@@ -30,18 +30,17 @@ namespace openapitools {
 namespace client {
 namespace model {
 
-class ScalarOrVector;
 
 
 /// <summary>
-/// Solution information
+/// Authentication error response
 /// </summary>
-class  Solution
+class  AuthErrorResponse
     : public ModelBase
 {
 public:
-    Solution();
-    virtual ~Solution();
+    AuthErrorResponse();
+    virtual ~AuthErrorResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -55,32 +54,32 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Solution members
+    /// AuthErrorResponse members
 
     /// <summary>
     /// 
     /// </summary>
-    std::shared_ptr<ScalarOrVector> getVariable() const;
-    bool variableIsSet() const;
-    void unsetVariable();
+    std::shared_ptr<AuthErrorCode> getCode() const;
+    bool codeIsSet() const;
+    void unsetCode();
 
-    void setVariable(const std::shared_ptr<ScalarOrVector>& value);
+    void setCode(const std::shared_ptr<AuthErrorCode>& value);
 
     /// <summary>
-    /// Solution submitted date and time
+    /// 
     /// </summary>
-    utility::datetime getCreatedAt() const;
-    bool createdAtIsSet() const;
-    void unsetCreatedAt();
+    utility::string_t getMessage() const;
+    bool messageIsSet() const;
+    void unsetMessage();
 
-    void setCreatedAt(const utility::datetime& value);
+    void setMessage(const utility::string_t& value);
 
 
 protected:
-    std::shared_ptr<ScalarOrVector> m_Variable;
-    bool m_VariableIsSet;
-    utility::datetime m_CreatedAt;
-    bool m_CreatedAtIsSet;
+    std::shared_ptr<AuthErrorCode> m_Code;
+    bool m_CodeIsSet;
+    utility::string_t m_Message;
+    bool m_MessageIsSet;
 };
 
 
@@ -89,4 +88,4 @@ protected:
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_Solution_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_AuthErrorResponse_H_ */

@@ -11,18 +11,18 @@
  */
 
 /*
- * Solution.h
+ * MatchTrialResponse.h
  *
- * Solution information
+ * Information of the created Solution
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Solution_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_Solution_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_MatchTrialResponse_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_MatchTrialResponse_H_
 
 
 #include "opthub_api_client/ModelBase.h"
 
-#include "opthub_api_client/model/ScalarOrVector.h"
+#include "opthub_api_client/model/MatchTrialStatus.h"
 #include <cpprest/details/basic_types.h>
 
 namespace org {
@@ -30,18 +30,17 @@ namespace openapitools {
 namespace client {
 namespace model {
 
-class ScalarOrVector;
 
 
 /// <summary>
-/// Solution information
+/// Information of the created Solution
 /// </summary>
-class  Solution
+class  MatchTrialResponse
     : public ModelBase
 {
 public:
-    Solution();
-    virtual ~Solution();
+    MatchTrialResponse();
+    virtual ~MatchTrialResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -55,19 +54,28 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Solution members
+    /// MatchTrialResponse members
+
+    /// <summary>
+    /// Trial number
+    /// </summary>
+    int32_t getTrialNo() const;
+    bool trialNoIsSet() const;
+    void unsetTrialNo();
+
+    void setTrialNo(int32_t value);
 
     /// <summary>
     /// 
     /// </summary>
-    std::shared_ptr<ScalarOrVector> getVariable() const;
-    bool variableIsSet() const;
-    void unsetVariable();
+    std::shared_ptr<MatchTrialStatus> getStatus() const;
+    bool statusIsSet() const;
+    void unsetStatus();
 
-    void setVariable(const std::shared_ptr<ScalarOrVector>& value);
+    void setStatus(const std::shared_ptr<MatchTrialStatus>& value);
 
     /// <summary>
-    /// Solution submitted date and time
+    /// Creation date and time
     /// </summary>
     utility::datetime getCreatedAt() const;
     bool createdAtIsSet() const;
@@ -77,8 +85,10 @@ public:
 
 
 protected:
-    std::shared_ptr<ScalarOrVector> m_Variable;
-    bool m_VariableIsSet;
+    int32_t m_TrialNo;
+    bool m_TrialNoIsSet;
+    std::shared_ptr<MatchTrialStatus> m_Status;
+    bool m_StatusIsSet;
     utility::datetime m_CreatedAt;
     bool m_CreatedAtIsSet;
 };
@@ -89,4 +99,4 @@ protected:
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_Solution_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_MatchTrialResponse_H_ */

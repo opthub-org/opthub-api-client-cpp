@@ -11,37 +11,35 @@
  */
 
 /*
- * Solution.h
+ * ScalarOrVector.h
  *
- * Solution information
+ * A double-precision floating-point scalar or vector.
  */
 
-#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Solution_H_
-#define ORG_OPENAPITOOLS_CLIENT_MODEL_Solution_H_
+#ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_ScalarOrVector_H_
+#define ORG_OPENAPITOOLS_CLIENT_MODEL_ScalarOrVector_H_
 
 
 #include "opthub_api_client/ModelBase.h"
 
-#include "opthub_api_client/model/ScalarOrVector.h"
-#include <cpprest/details/basic_types.h>
+#include <vector>
 
 namespace org {
 namespace openapitools {
 namespace client {
 namespace model {
 
-class ScalarOrVector;
 
 
 /// <summary>
-/// Solution information
+/// A double-precision floating-point scalar or vector.
 /// </summary>
-class  Solution
+class  ScalarOrVector
     : public ModelBase
 {
 public:
-    Solution();
-    virtual ~Solution();
+    ScalarOrVector();
+    virtual ~ScalarOrVector();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -55,32 +53,32 @@ public:
     bool fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// Solution members
+    /// ScalarOrVector members
 
     /// <summary>
-    /// 
+    /// A double-precision floating-point vector.
     /// </summary>
-    std::shared_ptr<ScalarOrVector> getVariable() const;
-    bool variableIsSet() const;
-    void unsetVariable();
+    std::vector<double>& getVector();
+    bool vectorIsSet() const;
+    void unsetVector();
 
-    void setVariable(const std::shared_ptr<ScalarOrVector>& value);
+    void setVector(std::vector<double> value);
 
     /// <summary>
-    /// Solution submitted date and time
+    /// A double-precision floating-point scalar value
     /// </summary>
-    utility::datetime getCreatedAt() const;
-    bool createdAtIsSet() const;
-    void unsetCreatedAt();
+    double getScalar() const;
+    bool scalarIsSet() const;
+    void unsetScalar();
 
-    void setCreatedAt(const utility::datetime& value);
+    void setScalar(double value);
 
 
 protected:
-    std::shared_ptr<ScalarOrVector> m_Variable;
-    bool m_VariableIsSet;
-    utility::datetime m_CreatedAt;
-    bool m_CreatedAtIsSet;
+    std::vector<double> m_Vector;
+    bool m_VectorIsSet;
+    double m_Scalar;
+    bool m_ScalarIsSet;
 };
 
 
@@ -89,4 +87,4 @@ protected:
 }
 }
 
-#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_Solution_H_ */
+#endif /* ORG_OPENAPITOOLS_CLIENT_MODEL_ScalarOrVector_H_ */
